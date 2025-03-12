@@ -1,0 +1,91 @@
+.mainContainer {
+  min-height: 100vh;
+  color: #111827;
+  background-color: #fff;
+  font-family: Inter;
+}
+
+.contentSection {
+  padding: 9px 1rem 1rem;
+}
+
+.pageTitle {
+  margin-bottom: 3rem;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.resourceGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  display: grid;
+}
+
+@media (width <= 640px) {
+  .resourceGrid {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+.resourceCard {
+  color: #3b82f6;
+  text-align: center;
+  background-color: #eef6f9;
+  border-radius: 0.5rem;
+  padding: 1.5rem 1.5rem 0.5px;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.75rem;
+}
+
+.resourceCardMultiline {
+  text-align: center;
+  background-color: #eef6f9;
+  border-radius: 0.5rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  display: flex;
+}
+
+.cardContent {
+  color: #3b82f6;
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.75rem;
+}
+
+.bottomNav {
+  background-color: #fff;
+  border-color: #e5e7eb;
+  border-top-width: 1px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.navContent {
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+  display: flex;
+}
+
+.navItem {
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.navIcon {
+  color: #3b82f6;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}

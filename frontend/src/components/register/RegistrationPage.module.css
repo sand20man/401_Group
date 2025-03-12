@@ -1,0 +1,187 @@
+.pageContainer {
+  background-color: #2f7ea6;
+  width: 100%;
+  max-width: none;
+  min-height: 100vh;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: Inter, sans-serif;
+  position: relative;
+}
+
+.header {
+  background-color: #2f7ea6;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  padding: 21px 16px 0;
+  display: flex;
+}
+
+.timeDisplay {
+  color: #000;
+  font-family: SF Pro, sans-serif;
+  font-size: 17px;
+  font-weight: 590;
+}
+
+.statusBarSpace {
+  width: 124px;
+  height: 10px;
+}
+
+.statusIcons {
+  flex: 1;
+}
+
+.pageTitle {
+  color: #fff;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  font-size: 48px;
+}
+
+.navigation {
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 20px;
+  padding: 0 41px;
+  display: flex;
+}
+
+.backText {
+  color: #fff;
+  letter-spacing: 0.1px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.backButton {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.formContainer {
+  background-color: #fff;
+  border: 1px solid #bfdce6;
+  border-radius: 8px;
+  width: 320px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.inputGroup {
+  margin-bottom: 24px;
+}
+
+.inputLabel {
+  color: #2f7ea6;
+  margin-bottom: 8px;
+  font-size: 16px;
+  display: block;
+}
+
+.inputField {
+  color: #bfdce6;
+  background-color: #fff;
+  border: 1px solid #bfdce6;
+  border-radius: 8px;
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 16px;
+}
+
+.termsGroup {
+  margin-bottom: 24px;
+}
+
+.termsContainer {
+  align-items: center;
+  gap: 12px;
+  display: flex;
+  cursor: pointer;
+}
+
+.checkbox {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.hiddenCheckbox {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkboxIcon {
+  background-color: #2f7ea6;
+  border-radius: 4px;
+  justify-content: center;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+  display: flex;
+}
+
+.termsText {
+  color: #2f7ea6;
+  font-size: 16px;
+}
+
+.submitButton {
+  color: #2f7ea6;
+  cursor: pointer;
+  background-color: #bfdce6;
+  border: 1px solid #bfdce6;
+  border-radius: 8px;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+}
+
+.backgroundDecoration {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 545px;
+  height: 571px;
+  z-index: -1;
+}
+
+@media (max-width: 991px) {
+  .pageContainer {
+    max-width: 991px;
+  }
+
+  .formContainer {
+    width: 90%;
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 640px) {
+  .pageContainer {
+    max-width: 640px;
+  }
+
+  .pageTitle {
+    font-size: 36px;
+  }
+
+  .navigation {
+    padding: 0 20px;
+  }
+
+  .formContainer {
+    width: 90%;
+    padding: 16px;
+  }
+}
