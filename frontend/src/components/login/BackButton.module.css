@@ -1,0 +1,14 @@
+.backButton {
+  cursor: pointer;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 24px;
+  display: flex;
+}
+
+.backText {
+  color: #fff;
+  letter-spacing: 0.1px;
+  font-size: 14px;
+  font-weight: 500;
+}
