@@ -20,7 +20,15 @@ namespace _401_Project.Data
         [MaxLength (255)]
         public string Location { get; set; }
         [Required]
-        public DateTime EventTime { get; set; }
+        public int EventYear { get; set; }
+        [Required]
+        public int EventMonth { get; set; }
+        [Required]
+        public int EventDay { get; set; }
+        [Required]
+        public int EventHour { get; set; }
+        [Required]
+        public int EventMinute { get; set; }
         [Required]
         public DateTime EventCreatedDate { get; set; } = DateTime.UtcNow;
     }
