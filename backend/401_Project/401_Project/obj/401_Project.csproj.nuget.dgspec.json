@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/colemansandy/Desktop/BYU/JuniorCore/401/401_Group/backend/401_Project/401_Project/401_Project.csproj": {}
+    "/Users/larajustus/IS 413/401_Group/backend/401_Project/401_Project/401_Project.csproj": {}
   },
   "projects": {
-    "/Users/colemansandy/Desktop/BYU/JuniorCore/401/401_Group/backend/401_Project/401_Project/401_Project.csproj": {
+    "/Users/larajustus/IS 413/401_Group/backend/401_Project/401_Project/401_Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/colemansandy/Desktop/BYU/JuniorCore/401/401_Group/backend/401_Project/401_Project/401_Project.csproj",
+        "projectUniqueName": "/Users/larajustus/IS 413/401_Group/backend/401_Project/401_Project/401_Project.csproj",
         "projectName": "401_Project",
-        "projectPath": "/Users/colemansandy/Desktop/BYU/JuniorCore/401/401_Group/backend/401_Project/401_Project/401_Project.csproj",
-        "packagesPath": "/Users/colemansandy/.nuget/packages/",
-        "outputPath": "/Users/colemansandy/Desktop/BYU/JuniorCore/401/401_Group/backend/401_Project/401_Project/obj/",
+        "projectPath": "/Users/larajustus/IS 413/401_Group/backend/401_Project/401_Project/401_Project.csproj",
+        "packagesPath": "/Users/larajustus/.nuget/packages/",
+        "outputPath": "/Users/larajustus/IS 413/401_Group/backend/401_Project/401_Project/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/colemansandy/.nuget/NuGet/NuGet.Config"
+          "/Users/larajustus/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -87,7 +87,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.404/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.405/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
