@@ -1,0 +1,16 @@
+.pageContainer {
+  min-height: screen;
+  color: #111827;
+  background-color: #fff;
+  font-family: Inter;
+}
+
+.contentWrapper {
+  padding: 9px 1rem 1rem;
+}
+
+.pageTitle {
+  margin-bottom: 3rem;
+  font-size: 32px;
+  font-weight: 600;
+}
