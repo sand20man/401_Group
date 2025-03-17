@@ -15,7 +15,7 @@ export default function Navbar() {
   return (
     <nav
       style={{
-        backgroundColor: '#007bff',
+        backgroundColor: 'white',
         padding: '10px',
         boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
       }}
@@ -67,7 +67,7 @@ function NavItem({ icon, label }: { icon: JSX.Element; label: string }) {
       style={{
         display: 'flex',
         alignItems: 'center',
-        color: 'white',
+        color: '#5AA7E0',
         cursor: 'pointer',
         padding: '5px 10px',
       }}
