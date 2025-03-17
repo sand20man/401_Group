@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import styles from './LoginForm.module.css';
+import { Link } from 'react-router-dom';
 
 const LoginForm: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -13,8 +14,11 @@ const LoginForm: React.FC = () => {
     console.log('Form submitted with:', { email, password });
   };
 
+
   return (
     <form className={styles.formContainer} onSubmit={handleSubmit}>
+      <h1>Find and Seek Login</h1>
+      <br />
       <div className={styles.formGroup}>
         <label htmlFor="email" className={styles.formLabel}>
           Email
@@ -22,7 +26,7 @@ const LoginForm: React.FC = () => {
         <input
           type="email"
           id="email"
-          placeholder="Value"
+          placeholder="Email"
           className={styles.formInput}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -36,7 +40,7 @@ const LoginForm: React.FC = () => {
         <input
           type="password"
           id="password"
-          placeholder="Value"
+          placeholder="Password"
           className={styles.formInput}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -47,9 +51,9 @@ const LoginForm: React.FC = () => {
         Sign In
       </button>
 
-      <a href="#" className={styles.forgotPassword}>
-        Forgot password?
-      </a>
+      <Link to="/register2" className={styles.forgotPassword}>
+        New User? Register Here!
+      </Link>
     </form>
   );
 };

@@ -70,13 +70,14 @@
   background-color: #fff;
   border: 1px solid #bfdce6;
   border-radius: 8px;
-  width: 320px;
+  width: 400px;
   margin: 0 auto;
   padding: 24px;
 }
 
 .inputGroup {
   margin-bottom: 24px;
+  padding-right: 35px;
 }
 
 .inputLabel {

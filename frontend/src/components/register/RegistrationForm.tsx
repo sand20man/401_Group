@@ -17,6 +17,7 @@ export const RegistrationForm: React.FC = () => {
 
   return (
     <form className={styles.formContainer} onSubmit={handleSubmit}>
+      <h1>Register Now</h1>
       <div className={styles.inputGroup}>
         <label htmlFor="email" className={styles.inputLabel}>
           Email

@@ -4,6 +4,7 @@
   width: 100%;
   max-width: 320px;
   padding: 24px;
+  font-weight: 150;
 }
 
 .formGroup {
@@ -49,3 +50,4 @@
     max-width: 100%;
   }
 }
+
