@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './InputDesign.module.css';
 
 interface QuestionCardProps {
@@ -8,6 +8,12 @@ interface QuestionCardProps {
 }
 
 const QuestionCard: React.FC<QuestionCardProps> = ({ author, content }) => {
+  const [isLiked, setIsLiked] = useState(false);
+
+  const toggleLike = () => {
+    setIsLiked(!isLiked);
+  };
+
   return (
     <article className={styles.questionCard}>
       <div className={styles.cardHeader}>
@@ -16,11 +22,17 @@ const QuestionCard: React.FC<QuestionCardProps> = ({ author, content }) => {
       </div>
       <p className={styles.questionContent}>{content}</p>
       <div className={styles.actionButtons}>
-        <button aria-label="Like">
-          <i className={`ti ti-heart ${styles.starIcon}`} />
+        <button
+          aria-label="Like"
+          onClick={toggleLike}
+          className={styles.likeButton}
+        >
+          <i
+            className={`ti ${isLiked ? 'ti-heart-filled' : 'ti-heart'} ${styles.heartIcon}`}
+          />
         </button>
         <button aria-label="Comment">
-          <i className={`ti ti-message ${styles.starIcon}`} />
+          <i className={`ti ti-message ${styles.replyIcon}`} />
         </button>
       </div>
     </article>

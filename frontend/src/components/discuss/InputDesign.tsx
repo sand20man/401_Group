@@ -1,7 +1,6 @@
 'use client';
 import * as React from 'react';
 import styles from './InputDesign.module.css';
-import StatusBar from './StatusBar';
 import QuestionCard from './QuestionCard';
 import BottomNavigation from './BottomNavigation';
 import FloatingActionButton from './FloatingActionButton';
@@ -39,7 +38,6 @@ function InputDesign() {
         href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"
       />
       <main className={styles.container}>
-        <StatusBar />
         <section className={styles.contentSection}>
           <h1 className={styles.pageTitle}>What's on your mind?</h1>
           <div className={styles.questionsFeed}>
