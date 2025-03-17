@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "/Users/colemansandy/Desktop/BYU/JuniorCore/401/Group_Project/backend/401_Project/401_Project/401_Project.csproj": {}
+    "C:\\Users\\Kaitlyn\\Documents\\Winter 2025\\IS401\\FindandSeek\\401_Group\\backend\\401_Project\\401_Project\\401_Project.csproj": {}
   },
   "projects": {
-    "/Users/colemansandy/Desktop/BYU/JuniorCore/401/Group_Project/backend/401_Project/401_Project/401_Project.csproj": {
+    "C:\\Users\\Kaitlyn\\Documents\\Winter 2025\\IS401\\FindandSeek\\401_Group\\backend\\401_Project\\401_Project\\401_Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/colemansandy/Desktop/BYU/JuniorCore/401/Group_Project/backend/401_Project/401_Project/401_Project.csproj",
+        "projectUniqueName": "C:\\Users\\Kaitlyn\\Documents\\Winter 2025\\IS401\\FindandSeek\\401_Group\\backend\\401_Project\\401_Project\\401_Project.csproj",
         "projectName": "401_Project",
-        "projectPath": "/Users/colemansandy/Desktop/BYU/JuniorCore/401/Group_Project/backend/401_Project/401_Project/401_Project.csproj",
-        "packagesPath": "/Users/colemansandy/.nuget/packages/",
-        "outputPath": "/Users/colemansandy/Desktop/BYU/JuniorCore/401/Group_Project/backend/401_Project/401_Project/obj/",
+        "projectPath": "C:\\Users\\Kaitlyn\\Documents\\Winter 2025\\IS401\\FindandSeek\\401_Group\\backend\\401_Project\\401_Project\\401_Project.csproj",
+        "packagesPath": "C:\\Users\\Kaitlyn\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Kaitlyn\\Documents\\Winter 2025\\IS401\\FindandSeek\\401_Group\\backend\\401_Project\\401_Project\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/colemansandy/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Kaitlyn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -87,7 +93,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.404/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.407/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
