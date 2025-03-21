@@ -1,0 +1,16 @@
+.decorationContainer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+}
+
+.decorationSvg {
+  position: absolute;
+  bottom: 0;
+  left: -179px;
+  width: 545px;
+  height: 571px;
+  transform: rotate(0.272deg);
+}
