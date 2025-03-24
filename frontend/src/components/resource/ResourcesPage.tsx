@@ -1,8 +1,7 @@
 'use client';
-import * as React from 'react';
+import BottomNavigation from '../navbar/BottomNavigation';
 import styles from './components.module.css';
 import { ResourceGrid } from './ResourceGrid';
-import { BottomNavigation } from './BottomNavigation';
 
 function ResourcesPage() {
   return (
@@ -16,8 +15,8 @@ function ResourcesPage() {
           <h1 className={styles.pageTitle}>Resources</h1>
           <ResourceGrid />
         </section>
-        <BottomNavigation />
       </main>
+      <BottomNavigation />
     </>
   );
 }

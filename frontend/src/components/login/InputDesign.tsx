@@ -2,10 +2,10 @@
 
 import React from 'react';
 import styles from './InputDesign.module.css';
-import StatusBar from './StatusBar';
 import BackButton from './BackButton';
 import LoginForm from './LoginForm';
 import BackgroundDecoration from './BackgroundDecoration';
+import BottomNavigation from '../navbar/BottomNavigation';
 
 const InputDesign: React.FC = () => {
   return (
@@ -15,8 +15,6 @@ const InputDesign: React.FC = () => {
         rel="stylesheet"
       />
       <main className={styles.loginPage}>
-        <StatusBar />
-
         <section className={styles.mainContent}>
           <h1 className={styles.pageTitle}>Login</h1>
           <BackButton />
@@ -25,6 +23,7 @@ const InputDesign: React.FC = () => {
 
         <BackgroundDecoration />
       </main>
+      <BottomNavigation />
     </>
   );
 };
