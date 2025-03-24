@@ -1,9 +1,8 @@
 'use client';
-import React from 'react';
 import styles from './FindAndSeekApp.module.css';
-import StatusBar from './StatusBar';
 import MainContent from './MainContent';
 import BackgroundDecoration from './BackgroundDecoration';
+import BottomNavigation from '../navbar/BottomNavigation';
 
 function FindAndSeekApp() {
   return (
@@ -13,10 +12,10 @@ function FindAndSeekApp() {
         rel="stylesheet"
       />
       <main className={styles.appContainer}>
-        <StatusBar />
         <MainContent />
         <BackgroundDecoration />
       </main>
+      <BottomNavigation />
     </>
   );
 }

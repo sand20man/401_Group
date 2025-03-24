@@ -1,9 +1,12 @@
 import React from 'react';
 import styles from './BackButton.module.css';
+import { useNavigate } from 'react-router-dom';
 
 const BackButton: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
-    <button className={styles.backButton}>
+    <button className={styles.backButton} onClick={() => navigate(-1)}>
       <svg
         width="24"
         height="24"
