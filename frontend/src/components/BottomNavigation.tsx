@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './styles/BottomNavigation.module.css';
+import styles from './NavigationButtonList.module.css';
 
 export function BottomNavigation() {
   return (

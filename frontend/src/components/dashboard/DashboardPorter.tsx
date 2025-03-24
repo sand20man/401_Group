@@ -1,15 +1,12 @@
 'use client';
 import * as React from 'react';
 import styles from './DashboardPorter.module.css';
-import { StatusBar } from './StatusBar';
 import { DashboardSection } from './DashboardSection';
-import { NavigationBar } from './NavigationBar';
+import NavigationButtonList from '../NavigationButtonList';
 
 function DashboardPorter() {
   return (
     <main className={styles.dashboardPorter}>
-      <StatusBar />
-
       <h1 className={styles.dashboard}>Dashboard</h1>
 
       <article className={styles.div}>
@@ -32,7 +29,7 @@ function DashboardPorter() {
         />
       </article>
 
-      <NavigationBar />
+      <NavigationButtonList />
     </main>
   );
 }
