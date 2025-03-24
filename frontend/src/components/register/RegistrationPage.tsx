@@ -1,11 +1,14 @@
 'use client';
 import React from 'react';
 import styles from './RegistrationPage.module.css';
-import { RegistrationHeader } from './RegistrationHeader';
 import { RegistrationForm } from './RegistrationForm';
 import { BackgroundDecoration } from './BackgroundDecoration';
+import BottomNavigation from '../navbar/BottomNavigation';
+import { useNavigate } from 'react-router-dom';
 
 const RegistrationPage: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <link
@@ -13,12 +16,10 @@ const RegistrationPage: React.FC = () => {
         rel="stylesheet"
       />
       <main className={styles.pageContainer}>
-        <RegistrationHeader />
-
         <h1 className={styles.pageTitle}>Register</h1>
 
         <nav className={styles.navigation}>
-          <button className={styles.backButton}>
+          <button className={styles.backButton} onClick={() => navigate(-1)}>
             <svg
               width="24"
               height="24"
@@ -38,6 +39,7 @@ const RegistrationPage: React.FC = () => {
         <RegistrationForm />
         <BackgroundDecoration />
       </main>
+      <BottomNavigation />
     </>
   );
 };
