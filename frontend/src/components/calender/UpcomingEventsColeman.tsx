@@ -1,3 +1,4 @@
+import BottomNavigation from '../navbar/BottomNavigation';
 import EventCard from './EventCard';
 
 const UpcomingEventsColeman = () => {
@@ -57,6 +58,7 @@ const UpcomingEventsColeman = () => {
           />
         ))}
       </div>
+      <BottomNavigation />
     </div>
   );
 };
