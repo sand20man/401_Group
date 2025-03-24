@@ -2,8 +2,10 @@
 
 import React, { useState } from 'react';
 import styles from './LoginForm.module.css';
+import { useNavigate } from 'react-router-dom';
 
 const LoginForm: React.FC = () => {
+  const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [hidden, setHidden] = useState(true);
@@ -58,7 +60,11 @@ const LoginForm: React.FC = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>
-      <button type="submit" className={styles.submitButton}>
+      <button
+        type="submit"
+        className={styles.submitButton}
+        onClick={() => navigate('/home')}
+      >
         Sign In
       </button>
       <p

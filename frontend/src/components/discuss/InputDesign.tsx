@@ -1,9 +1,8 @@
 'use client';
-import * as React from 'react';
 import styles from './InputDesign.module.css';
 import QuestionCard from './QuestionCard';
-import BottomNavigation from './BottomNavigation';
 import FloatingActionButton from './FloatingActionButton';
+import BottomNavigation from '../navbar/BottomNavigation';
 
 function InputDesign() {
   const questions = [

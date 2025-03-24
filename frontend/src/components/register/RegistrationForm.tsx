@@ -1,6 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import styles from './RegistrationPage.module.css';
+import { useNavigate } from 'react-router-dom';
 
 export const RegistrationForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -14,6 +15,8 @@ export const RegistrationForm: React.FC = () => {
     // Handle form submission
     console.log('Form submitted:', formData);
   };
+
+  const navigate = useNavigate();
 
   return (
     <form className={styles.formContainer} onSubmit={handleSubmit}>
@@ -87,7 +90,11 @@ export const RegistrationForm: React.FC = () => {
         </label>
       </div>
 
-      <button type="submit" className={styles.submitButton}>
+      <button
+        type="submit"
+        className={styles.submitButton}
+        onClick={() => navigate('/')}
+      >
         Register
       </button>
     </form>
