@@ -262,3 +262,13 @@ button:active {
   background: #eff3f9;
   resize: none;
 }
+
+.popupInput {
+  width: 80%;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #1e3a8a;
+  background: #eff3f9;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
