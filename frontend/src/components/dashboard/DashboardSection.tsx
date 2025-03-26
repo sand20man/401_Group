@@ -13,13 +13,15 @@ export const DashboardSection: React.FC<DashboardSectionProps> = ({
   className,
 }) => {
   return (
-    <section className={className}>
-      <img
-        src={imageUrl}
-        className={styles.img3}
-        alt={`${title} section background`}
-      />
+    <>
       <h2>{title}</h2>
-    </section>
+      <section className={className}>
+        <img
+          src={imageUrl}
+          className={styles.img}
+          alt={`${title} section background`}
+        />
+      </section>
+    </>
   );
 };
