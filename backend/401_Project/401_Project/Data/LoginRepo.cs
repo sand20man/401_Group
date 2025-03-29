@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Runtime.ConstrainedExecution;
 using static _401_Project.Data.LoginRepo;
 
 namespace _401_Project.Data
@@ -26,6 +27,25 @@ namespace _401_Project.Data
             }
 
             return (userid.UserId);
+        }
+
+        public void RegisterUser(string first, string last, string email, string password)
+        {
+            int maxUserId = _context.Users.Max(u => u.UserId);
+
+
+            User newUser = new User
+            { UserId = maxUserId + 1,
+                FirstName = first,
+                LastName = last,
+                Email = email,
+                Password = password
+            };
+            _context.Users.Add(newUser);
+
+            _context.SaveChanges();
+
+
         }
 
     }

@@ -4,22 +4,77 @@ import styles from './RegistrationPage.module.css';
 import { useNavigate } from 'react-router-dom';
 
 export const RegistrationForm: React.FC = () => {
+  const [hidden, setHidden] = useState(true);
+
   const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
     email: '',
     password: '',
     agreeToTerms: false,
   });
+  const url = `https://localhost:7009/api/Login/register?first=${formData.firstName}&last=${formData.lastName}&email=${formData.email}&password=${formData.password}`;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    try {
+      // Send a GET request with query parameters
+      const response = await fetch(url, {
+        method: 'GET',
+      });
+      console.log(response);
+
+      if (response.status == 200) {
+        setHidden(false);
+      } else {
+        setHidden(true);
+      }
+    } catch (error) {
+      console.log('Error during login:', error);
+    }
+  };
+
+  /* const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission
     console.log('Form submitted:', formData);
-  };
+  };*/
 
   const navigate = useNavigate();
 
   return (
     <form className={styles.formContainer} onSubmit={handleSubmit}>
+      <div className={styles.inputGroup}>
+        <label htmlFor="firstName" className={styles.inputLabel}>
+          First Name
+        </label>
+        <input
+          id="firstName"
+          type="firstName"
+          className={styles.inputField}
+          value={formData.firstName}
+          onChange={(e) =>
+            setFormData((prev) => ({ ...prev, firstName: e.target.value }))
+          }
+          placeholder="Enter your first name"
+        />
+      </div>
+      <div className={styles.inputGroup}>
+        <label htmlFor="lastName" className={styles.inputLabel}>
+          Last Name
+        </label>
+        <input
+          id="lastName"
+          type="lastName"
+          className={styles.inputField}
+          value={formData.lastName}
+          onChange={(e) =>
+            setFormData((prev) => ({ ...prev, lastName: e.target.value }))
+          }
+          placeholder="Enter your last name"
+        />
+      </div>
       <div className={styles.inputGroup}>
         <label htmlFor="email" className={styles.inputLabel}>
           Email
@@ -89,6 +144,12 @@ export const RegistrationForm: React.FC = () => {
           </span>
         </label>
       </div>
+      <p
+        style={{ display: hidden ? 'none' : 'block' }}
+        className={styles.termsText}
+      >
+        SUCCESS!!!
+      </p>
 
       <button
         type="submit"
