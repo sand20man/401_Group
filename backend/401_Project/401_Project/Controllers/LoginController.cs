@@ -29,5 +29,15 @@ namespace _401_Project.Controllers
             return Ok(success);
         }
 
+        [HttpGet("register")]
+        public int Register([FromQuery] string first, string last, string email, string password)
+        {
+            _loginService.RegisterUser(first, last, email, password);
+
+            return 1;
+            
+        }
+
+
     }
 }
