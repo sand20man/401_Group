@@ -24,27 +24,27 @@ namespace _401_Project.Controllers
             return await _context.Posts.Include(p => p.User).ToListAsync();
         }
         
-        [HttpPost]
-        public IActionResult CreatePost([FromBody] PostRequest request)
-        {
-            if (request == null || string.IsNullOrWhiteSpace(request.PosterName) || string.IsNullOrWhiteSpace(request.PostContent))
-            {
-                return BadRequest("Invalid post data.");
-            }
-
-            var newPost = new Post
-            {
-                UserId = 1, // Hardcoded user ID
-                PostContent = request.PostContent,
-                PosterName = request.PosterName,
-                PostCreatedAt = DateTime.UtcNow
-            };
-
-            _context.Posts.Add(newPost);
-            _context.SaveChanges();
-
-            return CreatedAtAction(nameof(GetPosts), new { id = newPost.PostId }, newPost);
-        }
+        // [HttpPost]
+        // public IActionResult CreatePost([FromBody] PostRequest request)
+        // {
+        //     if (request == null || string.IsNullOrWhiteSpace(request.PosterName) || string.IsNullOrWhiteSpace(request.PostContent))
+        //     {
+        //         return BadRequest("Invalid post data.");
+        //     }
+        //
+        //     var newPost = new Post
+        //     {
+        //         UserId = 1, // Hardcoded user ID
+        //         PostContent = request.PostContent,
+        //         PosterName = request.PosterName,
+        //         PostCreatedAt = DateTime.UtcNow
+        //     };
+        //
+        //     _context.Posts.Add(newPost);
+        //     _context.SaveChanges();
+        //
+        //     return CreatedAtAction(nameof(GetPosts), new { id = newPost.PostId }, newPost);
+        // }
         
         // Get starred posts
         //[HttpGet("StarredPosts")]

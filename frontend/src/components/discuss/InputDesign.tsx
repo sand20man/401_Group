@@ -33,16 +33,17 @@ function InputDesign() {
         <section className={styles.contentSection}>
           <h1 className={styles.pageTitle}>What's on your mind?</h1>
           <div className={styles.toggleButtonContainer}>
-            <button onClick={toggleStarred} className={styles.toggleButton}>
+            {/* <button onClick={toggleStarred} className={styles.toggleButton}>
               {showStarred ? 'Show All Posts' : 'Show Starred Posts'}
-            </button>
+            </button> */}
+            <FloatingActionButton />
           </div>
           <br />
           <div className={styles.questionsFeed}>
             {posts.map((post) => (
               <QuestionCard
                 key={post.postId}
-                author={post.posterName}
+                author={`${post.user.firstName} ${post.user.lastName}`}
                 content={post.postContent}
                 isStarred={false}
               />
@@ -50,7 +51,6 @@ function InputDesign() {
           </div>
         </section>
         <BottomNavigation />
-        <FloatingActionButton />
       </main>
     </>
   );

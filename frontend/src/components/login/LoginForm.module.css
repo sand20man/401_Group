@@ -1,9 +1,9 @@
 .formContainer {
   background-color: #fff;
   border-radius: 8px;
-  width: 100%;
+  width: 90%;
   max-width: 320px;
-  padding: 24px;
+  padding: 5%;
 }
 
 .formGroup {
@@ -21,7 +21,7 @@
   color: #bfdce6;
   border: 1px solid #bfdce6;
   border-radius: 8px;
-  width: 100%;
+  width: 80%;
   padding: 12px 16px;
   font-size: 16px;
 }
