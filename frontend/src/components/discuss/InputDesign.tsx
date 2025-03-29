@@ -8,6 +8,11 @@ import { Post } from '../../types/Post';
 
 function InputDesign() {
   const [posts, setPosts] = useState<Post[]>([]);
+  const [showStarred, setShowStarred] = useState(false);
+
+  const toggleStarred = () => {
+    setShowStarred((prev) => !prev);
+  };
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -39,6 +44,7 @@ function InputDesign() {
                 key={post.postId}
                 author={post.posterName}
                 content={post.postContent}
+                isStarred={false}
               />
             ))}
           </div>
