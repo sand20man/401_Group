@@ -66,19 +66,23 @@
 
 .authorName {
   color: #1e3a8a;
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-weight: 600; /* Slightly bolder for better readability */
   line-height: 1.5;
 }
 
 .starIcon {
-  color: #1e3a8a;
+  color: #ffd700;
   font-size: 1.2rem;
 }
 
 .heartIcon {
   font-size: 1.5rem;
   color: #950606;
+}
+
+.starButton:active .starIcon {
+  transform: scale(1.2); /* Subtle bounce effect on click */
 }
 
 .likeButton:active .heartIcon {
@@ -92,7 +96,7 @@
 
 .questionContent {
   margin-top: 0.75rem;
-  font-size: 1.5rem;
+  font-size: 1rem;
   line-height: 1.6;
   color: #374151; /* Darker gray for readability */
 }
@@ -165,4 +169,106 @@ button:active {
   color: #fff;
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+
+/* Floating Action Button */
+.fabContainer {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.fabButton {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #1e3a8a;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Popup Styles */
+.popupOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.popupContent {
+  background: #eff3f9;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  margin: 20px;
+}
+
+.popupTitle {
+  color: #1e3a8a;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.popupTextarea {
+  width: 80%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #1e3a8a;
+  background: #eff3f9;
+  resize: none;
+}
+
+.popupActions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.cancelButton,
+.postButton {
+  background: none;
+  border: none;
+  color: #1e3a8a;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.cancelButton {
+  margin-right: 10px;
+}
+
+/*Reply Styles*/
+.replySection {
+  margin-top: 10px; /* Add spacing between buttons and reply area */
+}
+.replyTextarea {
+  width: 95%;
+  padding: 5px;
+  font-size: 10px;
+  border: 1px solid #1e3a8a;
+  background: #eff3f9;
+  resize: none;
+}
+
+.popupInput {
+  width: 80%;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #1e3a8a;
+  background: #eff3f9;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }

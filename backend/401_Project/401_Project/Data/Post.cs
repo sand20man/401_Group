@@ -14,5 +14,7 @@ namespace _401_Project.Data
         [Required]
         public string PostContent { get; set; }
         public DateTime PostCreatedAt { get; set; } = DateTime.UtcNow;
+        [Required]
+        public string PosterName { get; set; }
     }
 }

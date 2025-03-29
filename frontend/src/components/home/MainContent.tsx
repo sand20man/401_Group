@@ -1,8 +1,11 @@
 'use client';
 import React from 'react';
 import styles from './MainContent.module.css';
+import { useNavigate } from 'react-router-dom';
 
 const MainContent: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <section className={styles.mainContent}>
       <h1 className={styles.title}>Find & Seek</h1>
@@ -14,8 +17,18 @@ const MainContent: React.FC = () => {
         />
       </figure>
       <div className={styles.buttonContainer}>
-        <button className={styles.actionButton}>Log In</button>
-        <button className={styles.actionButton}>Register</button>
+        <button
+          className={styles.actionButton}
+          onClick={() => navigate('/login')}
+        >
+          Log In
+        </button>
+        <button
+          className={styles.actionButton}
+          onClick={() => navigate('/register')}
+        >
+          Register
+        </button>
       </div>
     </section>
   );

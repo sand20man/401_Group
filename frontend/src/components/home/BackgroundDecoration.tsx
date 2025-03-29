@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './BackgroundDecoration.module.css';
 
+// Foo
+
 const BackgroundDecoration: React.FC = () => {
   return (
     <div className={styles.decorationContainer}>
