@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
 namespace _401_Project.Data
 {
     public class Event
@@ -8,7 +7,7 @@ namespace _401_Project.Data
         [Key]
         public int EventId { get; set; }
         [ForeignKey(nameof(UserId))]
-        public User User { get; set; }
+        public User? User { get; set; }
         [Required]
         public int UserId { get; set; }
         [Required]
