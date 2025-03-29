@@ -3,49 +3,25 @@ import styles from './InputDesign.module.css';
 import QuestionCard from './QuestionCard';
 import FloatingActionButton from './FloatingActionButton';
 import BottomNavigation from '../navbar/BottomNavigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { Post } from '../../types/Post';
 
 function InputDesign() {
-  const questions = [
-    {
-      author: 'Sarah C.',
-      content:
-        'I am new to the church and I am going to the temple to do baptisms for the first time soon. How can I prepare?',
-      isStarred: true,
-    },
-    {
-      author: 'Russell N.',
-      content: 'What are some ways you all have found to "Think Celestial"?',
-      isStarred: false,
-    },
-    {
-      author: 'John R.',
-      content:
-        "Any tips on how to beat the 4th ward's basketball team? Game next week",
-      isStarred: true,
-    },
-    {
-      author: 'Elizabeth O.',
-      content: "What's your favorite way to study the scriptures?",
-      isStarred: false,
-    },
-    {
-      author: 'Anonymous',
-      content: "How can I feel the Holy Ghost when I'm feeling sad?",
-      isStarred: false,
-    },
-  ];
-
+  const [posts, setPosts] = useState<Post[]>([]);
   const [showStarred, setShowStarred] = useState(false);
 
   const toggleStarred = () => {
     setShowStarred((prev) => !prev);
   };
 
-  // Filter posts based on whether they are starred or not
-  const filterQuestions = showStarred
-    ? questions.filter((question) => question.isStarred)
-    : questions;
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const response = await fetch('https://localhost:5000/api/Post');
+      const data = await response.json();
+      setPosts(Array.isArray(data) ? data : data.posts || []);
+    };
+    fetchPosts();
+  }, []);
 
   return (
     <>
@@ -63,12 +39,12 @@ function InputDesign() {
           </div>
           <br />
           <div className={styles.questionsFeed}>
-            {filterQuestions.map((question, index) => (
+            {posts.map((post) => (
               <QuestionCard
-                key={index}
-                author={question.author}
-                content={question.content}
-                isStarred={question.isStarred} // Pass down isStarred prop
+                key={post.postId}
+                author={post.posterName}
+                content={post.postContent}
+                isStarred={false}
               />
             ))}
           </div>
