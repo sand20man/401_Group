@@ -150,32 +150,11 @@ button:active {
   line-height: 1.75rem;
 }
 
-.fabContainer {
-  position: fixed;
-  bottom: 72px;
-  right: 1rem;
-}
-
-.fabButton {
-  background-color: #2563eb;
-  border-radius: 9999px;
-  padding: 1rem;
-  box-shadow:
-    0 10px 15px -3px #0000001a,
-    0 4px 6px -4px #0000001a;
-}
-
-.fabIcon {
-  color: #fff;
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
 /* Floating Action Button */
 .fabContainer {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 10%;
+  right: 2%;
 }
 
 .fabButton {
@@ -190,6 +169,12 @@ button:active {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.fabIcon {
+  color: #fff;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 /* Popup Styles */

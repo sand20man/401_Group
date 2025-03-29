@@ -2,7 +2,7 @@
   background-color: #fff;
   flex-direction: column;
   align-items: stretch;
-  width: 100%;
+  width: 80vw;
   max-width: 480px;
   margin-left: auto;
   margin-right: auto;
@@ -31,10 +31,11 @@
   position: relative;
 }
 
-h2, h1 {
+h2,
+h1 {
   display: block;
   color: black;
   width: 100%;
-  
+
   /* margin: 10px; */
 }

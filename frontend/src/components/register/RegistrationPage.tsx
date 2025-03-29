@@ -2,7 +2,7 @@
 import React from 'react';
 import styles from './RegistrationPage.module.css';
 import { RegistrationForm } from './RegistrationForm';
-import { BackgroundDecoration } from './BackgroundDecoration';
+import BackgroundDecoration from './BackgroundDecoration';
 import BottomNavigation from '../navbar/BottomNavigation';
 import { useNavigate } from 'react-router-dom';
 

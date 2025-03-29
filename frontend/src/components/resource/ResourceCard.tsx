@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import styles from './components.module.css';
 
+type ResourceType = 'simple' | 'multiline' | string;
 interface ResourceCardProps {
   title?: string;
-  type: 'simple' | 'multiline';
+  type: ResourceType;
   lines?: string[];
   description?: string;
   links?: string[];
@@ -16,6 +17,7 @@ export const ResourceCard: React.FC<ResourceCardProps> = ({
   description,
   links,
 }) => {
+  console.log(`Type: ${type}`);
   const [isFlipped, setIsFlipped] = useState(false);
 
   const handleFlip = () => {

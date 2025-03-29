@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './components.module.css';
-import { ResourceCard } from './ResourceCard';
+import { ResourceCard } from './ResourceCard.tsx';
 
 export const ResourceGrid: React.FC = () => {
   const resourceData = [
