@@ -75,7 +75,9 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
             rows={4}
             className={styles.replyTextarea}
           />
+          
           <div className={styles.replyActions}>
+          <br />
             <button onClick={handlePostReply} className={styles.postButton}>
               Post
             </button>

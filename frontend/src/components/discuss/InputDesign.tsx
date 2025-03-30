@@ -31,7 +31,7 @@ function InputDesign() {
       />
       <main className={styles.container}>
         <section className={styles.contentSection}>
-          <h1 className={styles.pageTitle}>What's on your mind?</h1>
+          <h1 className={styles.pageTitle}>What's on your Mind?</h1>
           <div className={styles.toggleButtonContainer}>
             {/* <button onClick={toggleStarred} className={styles.toggleButton}>
               {showStarred ? 'Show All Posts' : 'Show Starred Posts'}

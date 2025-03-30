@@ -29,12 +29,13 @@
   padding: 163px 70px -17px;
   display: flex;
   position: relative;
+  border-color: black;
 }
 
 h2,
 h1 {
   display: block;
-  color: black;
+  color: #2f7ea6;
   width: 100%;
 
   /* margin: 10px; */

@@ -16,6 +16,9 @@ const RegistrationPage: React.FC = () => {
         rel="stylesheet"
       />
       <main className={styles.pageContainer}>
+      <br />
+      <br />
+      <br />
         <h1 className={styles.pageTitle}>Register</h1>
 
         <nav className={styles.navigation}>
@@ -34,8 +37,9 @@ const RegistrationPage: React.FC = () => {
             </svg>
           </button>
           <span className={styles.backText}>BACK TO HOME</span>
+          <br />
         </nav>
-
+        <br />
         <RegistrationForm />
         <BackgroundDecoration />
       </main>

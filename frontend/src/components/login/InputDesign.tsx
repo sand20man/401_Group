@@ -16,8 +16,12 @@ const InputDesign: React.FC = () => {
       />
       <main className={styles.loginPage}>
         <section className={styles.mainContent}>
+          <br />
+          <br />
+          <br />
           <h1 className={styles.pageTitle}>Login</h1>
           <BackButton />
+          <br />
           <LoginForm />
         </section>
 

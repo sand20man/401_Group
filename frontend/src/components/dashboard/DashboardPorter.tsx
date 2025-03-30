@@ -27,6 +27,8 @@ function DashboardPorter() {
             onClick={() => navigate('/calendar')}
             style={{ cursor: 'pointer' }}
           >
+            <br />
+            <br />
             <DashboardSection
               imageUrl="https://cdn.builder.io/api/v1/image/assets/TEMP/b0bfd4952f3421cd30a751098f5161303878438e4834ff278e9881fc30720ef2?placeholderIfAbsent=true&apiKey=2bd317ef40774aafb8edbb2a35ba87d7"
               title="Calendar"
@@ -37,6 +39,8 @@ function DashboardPorter() {
             onClick={() => navigate('/resources')}
             style={{ cursor: 'pointer' }}
           >
+            <br />
+            <br />
             <DashboardSection
               imageUrl="https://cdn.builder.io/api/v1/image/assets/TEMP/6338e1452d1db94c0e2eb16b39ba79f2266edb7b3322d5fb22191a3b469124ef?placeholderIfAbsent=true&apiKey=2bd317ef40774aafb8edbb2a35ba87d7"
               title="Resources"
@@ -48,6 +52,9 @@ function DashboardPorter() {
       <br />
       <br />
       <BottomNavigation />
+      <br />
+      <br />
+      <br />
     </>
   );
 }

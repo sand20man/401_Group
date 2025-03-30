@@ -12,7 +12,7 @@ function ResourcesPage() {
       />
       <main className={styles.mainContainer}>
         <section className={styles.contentSection}>
-          <h1 className={styles.pageTitle}>Resources</h1>
+          <h1 className={styles.pageTitle}>Resource Hub</h1>
           <ResourceGrid />
         </section>
       </main>

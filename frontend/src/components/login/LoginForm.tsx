@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import styles from './LoginForm.module.css';
+import styles from '../register/RegistrationPage.module.css';
 import { useNavigate } from 'react-router-dom';
 
 const LoginForm: React.FC = () => {
@@ -33,29 +33,30 @@ const LoginForm: React.FC = () => {
   };
 
   return (
+    <>
     <form className={styles.formContainer} onSubmit={handleSubmit}>
-      <div className={styles.formGroup}>
-        <label htmlFor="email" className={styles.formLabel}>
+      <div className={styles.inputGroup}>
+        <label htmlFor="email" className={styles.inputLabel}>
           Email
         </label>
         <input
           type="email"
           id="email"
-          placeholder="Value"
-          className={styles.formInput}
+          placeholder="Username here"
+          className={styles.inputField}
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
       </div>
-      <div className={styles.formGroup}>
-        <label htmlFor="password" className={styles.formLabel}>
+      <div className={styles.inputGroup}>
+        <label htmlFor="password" className={styles.inputLabel}>
           Password
         </label>
         <input
           type="password"
           id="password"
-          placeholder="Value"
-          className={styles.formInput}
+          placeholder="Password here"
+          className={styles.inputField}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
@@ -73,10 +74,14 @@ const LoginForm: React.FC = () => {
       >
         SUCCESS!!!
       </p>
+      <br />
+      <br />
+
       <a href="#" className={styles.forgotPassword}>
         Forgot password?
       </a>
     </form>
+    </>
   );
 };
 

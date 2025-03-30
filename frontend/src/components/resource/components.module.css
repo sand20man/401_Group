@@ -26,7 +26,7 @@ body {
   font-size: 32px;
   font-weight: 600;
   text-align: center;
-  color: #3b82f6;
+  color: #2f7ea6;
 }
 
 /* Resource Grid */
@@ -46,7 +46,7 @@ body {
 
 /* Resource Card */
 .resourceCard {
-  color: #3b82f6;
+  color: #2f7ea6;
   text-align: center;
   background-color: #eef6f9;
   border-radius: 0.5rem;
@@ -147,7 +147,7 @@ body {
 
 /* Card Text */
 .cardContent {
-  color: #3b82f6;
+  color: #2f7ea6;
   font-size: 1.25rem;
   font-weight: 500;
   /* box-sizing: border-box; */
@@ -182,7 +182,7 @@ body {
 
 /* Resource Links */
 .resourceLink {
-  color: #3b82f6;
+  color: #2f7ea6;
   text-decoration: none;
   font-size: 0.875rem;
   padding: 0.25rem 0;
