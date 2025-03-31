@@ -13,7 +13,7 @@ export const RegistrationForm: React.FC = () => {
     password: '',
     agreeToTerms: false,
   });
-  const url = `https://localhost:7009/api/Login/register?first=${formData.firstName}&last=${formData.lastName}&email=${formData.email}&password=${formData.password}`;
+  const url = `https://localhost:5000/api/Login/register?first=${formData.firstName}&last=${formData.lastName}&email=${formData.email}&password=${formData.password}`;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

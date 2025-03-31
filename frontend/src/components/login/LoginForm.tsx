@@ -15,7 +15,7 @@ const LoginForm: React.FC = () => {
     try {
       // Send a GET request with query parameters
       const response = await fetch(
-        `https://localhost:7009/api/login/check?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`,
+        `https://localhost:5000/api/login/check?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`,
         {
           method: 'GET',
         }
@@ -34,53 +34,53 @@ const LoginForm: React.FC = () => {
 
   return (
     <>
-    <form className={styles.formContainer} onSubmit={handleSubmit}>
-      <div className={styles.inputGroup}>
-        <label htmlFor="email" className={styles.inputLabel}>
-          Email
-        </label>
-        <input
-          type="email"
-          id="email"
-          placeholder="Username here"
-          className={styles.inputField}
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-      </div>
-      <div className={styles.inputGroup}>
-        <label htmlFor="password" className={styles.inputLabel}>
-          Password
-        </label>
-        <input
-          type="password"
-          id="password"
-          placeholder="Password here"
-          className={styles.inputField}
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </div>
-      <button
-        type="submit"
-        className={styles.submitButton}
-        onClick={() => navigate('/home')}
-      >
-        Sign In
-      </button>
-      <p
-        style={{ display: hidden ? 'none' : 'block' }}
-        className={styles.formLabel}
-      >
-        SUCCESS!!!
-      </p>
-      <br />
-      <br />
+      <form className={styles.formContainer} onSubmit={handleSubmit}>
+        <div className={styles.inputGroup}>
+          <label htmlFor="email" className={styles.inputLabel}>
+            Email
+          </label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Username here"
+            className={styles.inputField}
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </div>
+        <div className={styles.inputGroup}>
+          <label htmlFor="password" className={styles.inputLabel}>
+            Password
+          </label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Password here"
+            className={styles.inputField}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <button
+          type="submit"
+          className={styles.submitButton}
+          onClick={() => navigate('/home')}
+        >
+          Sign In
+        </button>
+        <p
+          style={{ display: hidden ? 'none' : 'block' }}
+          className={styles.formLabel}
+        >
+          SUCCESS!!!
+        </p>
+        <br />
+        <br />
 
-      <a href="#" className={styles.forgotPassword}>
-        Forgot password?
-      </a>
-    </form>
+        <a href="#" className={styles.forgotPassword}>
+          Forgot password?
+        </a>
+      </form>
     </>
   );
 };
