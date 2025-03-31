@@ -1,0 +1,37 @@
+.calendarContainer {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: left;
+  }
+  
+  .upcomingTitle {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+  
+  .eventsScrollContainer {
+    max-height: 500px;
+    overflow-y: auto;
+    margin-bottom: 2rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 1rem;
+  }
+  
+  /* "Floating" add button in bottom-right corner */
+  .fabButton {
+    position: fixed;
+    right: 2rem;
+    bottom: 4rem;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    line-height: 1;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  

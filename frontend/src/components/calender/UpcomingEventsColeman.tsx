@@ -1,149 +1,92 @@
-import BottomNavigation from '../navbar/BottomNavigation';
-import EventCard from './EventCard';
+import React, { useState, useEffect, useContext } from "react";
+import EventCard from "./EventCard";
+import NewEventForm from "./CreateEventForm";
+import BottomNavigation from "../navbar/BottomNavigation";
+import styles from "./UpcomingEventsColeman.module.css";
+import { AuthContext } from "../../contexts/AuthContext";
 
-const UpcomingEventsColeman = () => {
-  const events = [
-    {
-      title: 'Basketball vs 4th Ward',
-      postedBy: 'Jimmer F',
-      date: '2/24/25 6:30 pm',
-      location: 'Provo Stake Center',
-    },
-    {
-      title: 'Multi-Stake Youth Devo',
-      postedBy: 'Dieter U.',
-      date: '03/01/25 7:00pm',
-      location: 'Multi-Stake Building',
-    },
-    {
-      title: 'Ward Bbq',
-      postedBy: 'Ally O.',
-      date: '05/23/25 12:00pm',
-      location: 'Kiwanis Park',
-    },
-    {
-      title: 'Relief Society Activity',
-      postedBy: 'Karen A.',
-      date: '06/17/25 6:30pm',
-      location: 'Location',
-    },
-    {
-      title: 'Ward Family History Night',
-      postedBy: 'Caroline J.',
-      date: '08/29/25 6:00pm',
-      location: 'Smith Building',
-    },
-  ];
+interface EventData {
+  eventId: number;
+  userId: number;
+  postedByName?: string;
+  title: string;
+  description: string;
+  location: string;
+  eventYear: number;
+  eventMonth: number;
+  eventDay: number;
+  eventHour: number;
+  eventMinute: number;
+  eventCreatedDate: string;
+}
+
+const UpcomingEventsColeman: React.FC = () => {
+  const { currentUserId } = useContext(AuthContext);
+  const [events, setEvents] = useState<EventData[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [showNewEventForm, setShowNewEventForm] = useState<boolean>(false);
+
+  const fetchEvents = () => {
+    fetch("http://localhost:4000/api/Events")
+      .then((res) => res.json())
+      .then((data: EventData[]) => {
+        setEvents(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Error fetching events:", err);
+        setLoading(false);
+      });
+  };
+
+  useEffect(() => {
+    fetchEvents();
+  }, []);
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-100">
-      <div className="bg-white px-4 py-3 shadow-md">
-        <h1 className="text-2xl font-bold text-gray-900">Upcoming Events</h1>
+    <div className={styles.calendarContainer}>
+      <h2 className={styles.upcomingTitle}>Upcoming Events</h2>
+      <div className={styles.eventsScrollContainer}>
+        {loading ? (
+          <p>Loading events...</p>
+        ) : events.length > 0 ? (
+          events.map((event) => {
+            const formattedDate = `${event.eventMonth}/${event.eventDay}/${event.eventYear} ${event.eventHour
+              .toString()
+              .padStart(2, "0")}:${event.eventMinute.toString().padStart(2, "0")}`;
+            const postedBy = event.postedByName || "Unknown";
+            return (
+              <EventCard
+                key={event.eventId}
+                eventId={event.eventId}
+                userId={event.userId}
+                title={event.title}
+                postedByName={postedBy}
+                date={formattedDate}
+                location={event.location}
+                description={event.description}
+              />
+            );
+          })
+        ) : (
+          <p>No events found.</p>
+        )}
       </div>
-
-      <img
-        src="https://cdn.builder.io/api/v1/image/assets/TEMP/bfa4886845ea332bd402f3a0527a4fb94ec52be2123bd1343f0e089d7efd9f20?placeholderIfAbsent=true&apiKey=655f43cc0cb849d89cc96b17a1b931c3"
-        alt="Upcoming Events"
-        className="w-full h-40 object-cover"
-      />
-
-      <div className="flex-1 overflow-y-auto px-4 pt-4">
-        {events.map((event, index) => (
-          <EventCard
-            key={index}
-            title={event.title}
-            postedBy={event.postedBy}
-            date={event.date}
-            location={event.location}
-          />
-        ))}
-      </div>
+      <button className={styles.fabButton} onClick={() => setShowNewEventForm(true)}>
+        +
+      </button>
       <BottomNavigation />
+      {showNewEventForm && (
+        <NewEventForm
+          onCancel={() => setShowNewEventForm(false)}
+          onEventCreated={() => {
+            setShowNewEventForm(false);
+            fetchEvents();
+          }}
+        />
+      )}
     </div>
   );
 };
 
 export default UpcomingEventsColeman;
-
-// THIS USES TAILWIND & REACT NATIVE WHICH WE AREN'T GOING TO UTILIZE IN THIS PROJECT
-// -------------------------------------------------------------------
-// import React from 'react';
-// import { View, Text, ScrollView, Image } from 'react-native';
-// import { StatusBarCustom } from './StatusBarCustom';
-// import { EventCard } from './EventCard';
-// import { NavigationBar } from './NavigationBar';
-
-// const UpcomingEventsColeman: React.FC = () => {
-//   const events = [
-//     {
-//       title: 'Basketball vs 4th Ward',
-//       postedBy: 'Jimmer F',
-//       date: '2/24/25 6:30 pm',
-//       location: 'Provo Stake Center',
-//     },
-//     {
-//       title: 'Multi-Stake Youth Devo',
-//       postedBy: 'Dieter U.',
-//       date: '03/01/25 7:00pm',
-//       location: 'Multi-Stake Building',
-//     },
-//     {
-//       title: 'Ward Bbq',
-//       postedBy: 'Ally O.',
-//       date: '05/23/25 12:00pm',
-//       location: 'Kiwanis Park',
-//     },
-//     {
-//       title: 'Relief Society Activity',
-//       postedBy: 'Karen A.',
-//       date: '06/17/25 6:30pm',
-//       location: 'Location',
-//     },
-//     {
-//       title: 'Ward Family History Night',
-//       postedBy: 'Caroline J.',
-//       date: '08/29/25 6:00pm',
-//       location: 'Smith Building',
-//     },
-//   ];
-
-//   return (
-//     <View className="flex-1 bg-gray-100">
-//       <StatusBarCustom />
-
-//       <View className="bg-white px-4 py-3">
-//         <Text className="text-2xl font-bold text-gray-900">
-//           Upcoming Events
-//         </Text>
-//       </View>
-
-//       <Image
-//         source={{
-//           uri: 'https://cdn.builder.io/api/v1/image/assets/TEMP/bfa4886845ea332bd402f3a0527a4fb94ec52be2123bd1343f0e089d7efd9f20?placeholderIfAbsent=true&apiKey=655f43cc0cb849d89cc96b17a1b931c3',
-//         }}
-//         className="w-full h-40"
-//         resizeMode="cover"
-//       />
-
-//       <ScrollView
-//         className="flex-1 px-4 pt-4"
-//         showsVerticalScrollIndicator={false}
-//       >
-//         {events.map((event, index) => (
-//           <EventCard
-//             key={index}
-//             title={event.title}
-//             postedBy={event.postedBy}
-//             date={event.date}
-//             location={event.location}
-//           />
-//         ))}
-//       </ScrollView>
-
-//       <NavigationBar />
-//     </View>
-//   );
-// };
-
-// export default UpcomingEventsColeman;
-// -------------------------------------------------------------------

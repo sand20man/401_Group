@@ -5,6 +5,7 @@ type ResourceType = 'simple' | 'multiline' | string;
 interface ResourceCardProps {
   title?: string;
   type: ResourceType;
+  icon?: string;
   lines?: string[];
   description?: string;
   links?: string[];
@@ -13,6 +14,7 @@ interface ResourceCardProps {
 export const ResourceCard: React.FC<ResourceCardProps> = ({
   title,
   type,
+  icon,
   lines,
   description,
   links,
@@ -25,18 +27,19 @@ export const ResourceCard: React.FC<ResourceCardProps> = ({
   };
 
   const renderFront = () => {
-    if (type === 'simple') {
-      return <div className={styles.cardFrontContent}>{title}</div>;
-    }
-
     return (
       <div className={styles.cardFrontContent}>
-        {lines?.map((line, index) => (
-          <React.Fragment key={index}>
-            <span>{line}</span>
-            {index < lines.length - 1 && <br />}
-          </React.Fragment>
-        ))}
+        {icon && (
+          <img src={icon} alt={title} className={styles.resourceIcon} />
+        )}
+        {type === 'simple'
+          ? title
+          : lines?.map((line, index) => (
+              <React.Fragment key={index}>
+                <span>{line}</span>
+                {index < lines.length - 1 && <br />}
+              </React.Fragment>
+            ))}
       </div>
     );
   };
@@ -49,7 +52,6 @@ export const ResourceCard: React.FC<ResourceCardProps> = ({
         </div>
       );
     }
-
     return (
       <div className={styles.cardBackContent}>
         {description && <p className={styles.cardDescription}>{description}</p>}
@@ -68,22 +70,14 @@ export const ResourceCard: React.FC<ResourceCardProps> = ({
 
   return (
     <div className={styles.flippableCardContainer} onClick={handleFlip}>
-      <div
-        className={`${styles.flippableCard} ${isFlipped ? styles.flipped : ''}`}
-      >
+      <div className={`${styles.flippableCard} ${isFlipped ? styles.flipped : ''}`}>
         <div className={styles.flippableCardFront}>
-          {type === 'simple' ? (
-            <article className={styles.resourceCard}>{renderFront()}</article>
-          ) : (
-            <article className={styles.resourceCardMultiline}>
-              <div className={styles.cardContent}>{renderFront()}</div>
-            </article>
-          )}
+          <article className={type === 'simple' ? styles.resourceCard : styles.resourceCardMultiline}>
+            {renderFront()}
+          </article>
         </div>
         <div className={styles.flippableCardBack}>
-          <article
-            className={`${type === 'simple' ? styles.resourceCard : styles.resourceCardMultiline} ${styles.backCard}`}
-          >
+          <article className={`${type === 'simple' ? styles.resourceCard : styles.resourceCardMultiline} ${styles.backCard}`}>
             {renderBack()}
           </article>
         </div>

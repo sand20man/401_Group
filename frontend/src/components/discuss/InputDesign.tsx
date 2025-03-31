@@ -16,7 +16,7 @@ function InputDesign() {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const response = await fetch('https://localhost:5000/api/Post');
+      const response = await fetch('https://localhost:4000/api/Post');
       const data = await response.json();
       setPosts(Array.isArray(data) ? data : data.posts || []);
     };
@@ -81,8 +81,8 @@ export default InputDesign;
 //   const fetchPosts = async (onlyStarred: boolean = false) => {
 //     try {
 //       const url = onlyStarred
-//         ? `https://localhost:5000/api/Post/get-all?userId=${LOGGED_IN_USER_ID}&starred=true`
-//         : `https://localhost:5000/api/Post/get-all?userId=${LOGGED_IN_USER_ID}`;
+//         ? https://localhost:5000/api/Post/get-all?userId=${LOGGED_IN_USER_ID}&starred=true
+//         : https://localhost:5000/api/Post/get-all?userId=${LOGGED_IN_USER_ID};
 //       const response = await fetch(url);
 //       if (response.ok) {
 //         const data = await response.json();

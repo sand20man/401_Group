@@ -1,56 +1,56 @@
-using _401_Project.Data;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using _401_Project.Data;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+
 namespace _401_Project.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
-    public class EventsController : ControllerBase
+[Route("api/[controller]")]
+public class EventsController : ControllerBase
+{
+    private readonly FindAndSeekDbContext _context;
+    public EventsController(FindAndSeekDbContext context)
     {
-        private readonly FindAndSeekDbContext _context;
-        public EventsController(FindAndSeekDbContext context)
-        {
-            _context = context;
-        }
+        _context = context;
+    }
 
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<object>>> GetEvents()
+    {
+        var events = await _context.Events
+            .Include(e => e.User)
+            // Sort from soonest to farthest by Year, Month, Day, Hour, Minute
+            .OrderBy(e => e.EventYear)
+            .ThenBy(e => e.EventMonth)
+            .ThenBy(e => e.EventDay)
+            .ThenBy(e => e.EventHour)
+            .ThenBy(e => e.EventMinute)
+            .Select(e => new
+            {
+                e.EventId,
+                e.UserId,
+                // Build the postedByName string
+                PostedByName = e.User.FirstName + " " + e.User.LastName,
+                e.Title,
+                e.Description,
+                e.Location,
+                e.EventYear,
+                e.EventMonth,
+                e.EventDay,
+                e.EventHour,
+                e.EventMinute,
+                e.EventCreatedDate
+            })
+            .ToListAsync();
 
+        return Ok(events);
+    }
 
-        // Http get request
-        // Main context builder
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<object>>> GetEvents()
-        {
-            var events = await _context.Events
-                .Include(e => e.User)
-                .OrderBy(e => e.EventYear)
-                .ThenBy(e => e.EventMonth)
-                .ThenBy(e => e.EventDay)
-                .Select(e => new
-                {
-                    e.EventId,
-                    e.UserId,
-                    PostedByName = e.User.FirstName + " " + e.User.LastName,
-                    e.Title,
-                    e.Description,
-                    e.Location,
-                    e.EventYear,
-                    e.EventMonth,
-                    e.EventDay,
-                    e.EventHour,
-                    e.EventMinute,
-                    e.EventCreatedDate
-                })
-                .ToListAsync();
-            return Ok(events);
-        }
-
-
-
-
-        // GET:
+        // GET: api/Events/5
         [HttpGet("{id}")]
         public async Task<ActionResult<object>> GetEvent(int id)
         {
@@ -73,18 +73,16 @@ namespace _401_Project.Controllers
                     e.EventCreatedDate
                 })
                 .FirstOrDefaultAsync();
+
             if (ev == null)
             {
                 return NotFound();
             }
+
             return Ok(ev);
         }
 
-
-
-
-
-        // POST: 
+        // POST: api/Events
         [HttpPost]
         public async Task<ActionResult<Event>> CreateEvent(Event newEvent)
         {
@@ -96,16 +94,12 @@ namespace _401_Project.Controllers
             }
             catch (Exception ex)
             {
-                // Return the exception message in the response so you can see exactly what's failing
+                // Return the exception message for debugging purposes
                 return BadRequest(new { message = ex.Message });
             }
         }
 
-
-
-
-
-        // PUT:
+        // PUT: api/Events/5
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateEvent(int id, Event updatedEvent)
         {
@@ -113,7 +107,9 @@ namespace _401_Project.Controllers
             {
                 return BadRequest();
             }
+
             _context.Entry(updatedEvent).State = EntityState.Modified;
+
             try
             {
                 await _context.SaveChangesAsync();
@@ -126,11 +122,11 @@ namespace _401_Project.Controllers
                 }
                 throw;
             }
+
             return NoContent();
         }
 
-
-        // DELETE:
+        // DELETE: api/Events/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteEvent(int id)
         {
@@ -139,6 +135,7 @@ namespace _401_Project.Controllers
             {
                 return NotFound();
             }
+
             _context.Events.Remove(ev);
             await _context.SaveChangesAsync();
             return NoContent();

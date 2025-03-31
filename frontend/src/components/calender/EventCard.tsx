@@ -1,107 +1,73 @@
-import React from 'react';
+import React, { useState, useContext } from "react";
+import styles from "./EventCard.module.css";
+import { AuthContext } from "../../contexts/AuthContext";
 
 interface EventCardProps {
+  eventId: number;
+  userId: number;
   title: string;
-  postedBy?: string;
+  postedByName: string;
   date: string;
   location: string;
+  description: string;
+  onEdit?: () => void;
+  onDelete?: () => void;
 }
 
 const EventCard: React.FC<EventCardProps> = ({
+  eventId,
+  userId,
   title,
-  postedBy,
+  postedByName,
   date,
   location,
+  description,
+  onEdit,
+  onDelete,
 }) => {
+  const { currentUserId } = useContext(AuthContext);
+  const isOwner = currentUserId !== null && userId === currentUserId;
+  const [menuOpen, setMenuOpen] = useState(false);
+  const toggleMenu = () => {
+    setMenuOpen((prev) => !prev);
+  };
+  const handleEdit = () => {
+    setMenuOpen(false);
+    onEdit ? onEdit() : console.log("Edit event");
+  };
+  const handleDelete = () => {
+    setMenuOpen(false);
+    if (window.confirm("Are you sure you want to delete this event?")) {
+      onDelete ? onDelete() : console.log("Delete event");
+    }
+  };
   return (
-    <div className="mb-4 bg-white rounded-lg shadow-md p-4">
-      <div className="flex justify-between items-start">
-        <div className="flex-1">
-          <div>
-            <h2 className="text-lg font-semibold text-gray-800">{title}</h2>
-            {postedBy && (
-              <p className="text-sm text-gray-600 mt-1">
-                Posted by "{postedBy}"
-              </p>
+    <div className={styles.eventCard}>
+      <div className={styles.eventCardHeader}>
+        {isOwner && (
+          <div className={styles.menuContainer}>
+            <button className={styles.menuButton} onClick={toggleMenu}>
+              &#8942;
+            </button>
+            {menuOpen && (
+              <div className={styles.menuDropdown}>
+                <button onClick={handleEdit}>Edit</button>
+                <button onClick={handleDelete}>Delete</button>
+              </div>
             )}
           </div>
-        </div>
-        <img
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/577c66991a475ece4ca2f3df8dbe1fa7d5455c103c937510ef81bb8bf1742ea8?placeholderIfAbsent=true&apiKey=655f43cc0cb849d89cc96b17a1b931c3"
-          alt="Event Icon"
-          className="w-6 h-6 object-contain"
-        />
+        )}
+        <h3 className={styles.eventCardTitle}>{title}</h3>
+        <p className={styles.eventCardPostedBy}>Posted by {postedByName}</p>
       </div>
-
-      <div className="h-px bg-gray-200 my-3" />
-
-      <div>
-        <p className="text-gray-700">{date}</p>
-      </div>
-
-      <div className="h-px bg-gray-200 my-3" />
-
-      <div>
-        <p className="text-gray-700">{location}</p>
-      </div>
+      <hr className={styles.divider} />
+      <p className={styles.eventCardDate}>Date: {date}</p>
+      <hr className={styles.divider} />
+      <p className={styles.eventCardLocation}>Location: {location}</p>
+      <hr className={styles.divider} />
+      <p className={styles.eventCardDescription}>Details: {description}</p>
     </div>
   );
 };
 
 export default EventCard;
-
-// THIS USES TAILWIND & REACT-NATIVE WHICH WE AREN'T GOING TO UTILIZE IN THIS PROJECT
-// -------------------------------------------------------------------
-// import React from 'react';
-// import { View, Text, Image } from 'react-native';
-
-// interface EventCardProps {
-//   title: string;
-//   postedBy?: string;
-//   date: string;
-//   location: string;
-// }
-
-// export const EventCard: React.FC<EventCardProps> = ({
-//   title,
-//   postedBy,
-//   date,
-//   location,
-// }) => {
-//   return (
-//     <View className="mb-4 bg-white rounded-lg shadow-md p-4">
-//       <View className="flex-row justify-between items-start">
-//         <View className="flex-1">
-//           <View>
-//             <Text className="text-lg font-semibold text-gray-800">{title}</Text>
-//             {postedBy && (
-//               <Text className="text-sm text-gray-600 mt-1">
-//                 Posted by "{postedBy}"
-//               </Text>
-//             )}
-//           </View>
-//         </View>
-//         <Image
-//           source={{
-//             uri: 'https://cdn.builder.io/api/v1/image/assets/TEMP/577c66991a475ece4ca2f3df8dbe1fa7d5455c103c937510ef81bb8bf1742ea8?placeholderIfAbsent=true&apiKey=655f43cc0cb849d89cc96b17a1b931c3',
-//           }}
-//           className="w-6 h-6"
-//           resizeMode="contain"
-//         />
-//       </View>
-
-//       <View className="h-[1px] bg-gray-200 my-3" />
-
-//       <View>
-//         <Text className="text-gray-700">{date}</Text>
-//       </View>
-
-//       <View className="h-[1px] bg-gray-200 my-3" />
-
-//       <View>
-//         <Text className="text-gray-700">{location}</Text>
-//       </View>
-//     </View>
-//   );
-// };
-// -------------------------------------------------------------------

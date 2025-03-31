@@ -1,29 +1,30 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import styles from '../register/RegistrationPage.module.css';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthContext';
 
 const LoginForm: React.FC = () => {
   const navigate = useNavigate();
+  const { setCurrentUserId } = useContext(AuthContext);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [hidden, setHidden] = useState(true);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
     try {
-      // Send a GET request with query parameters
       const response = await fetch(
-        `https://localhost:5000/api/login/check?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`,
-        {
-          method: 'GET',
-        }
+        `http://localhost:4000/api/login/check?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`,
+        { method: 'GET' }
       );
       console.log(response);
-
-      if (response.status == 200) {
+      if (response.status === 200) {
         setHidden(false);
+        const data = await response.json();
+        setCurrentUserId(data);  // <-- backend returns a number (userId)
+        navigate('/home');
       } else {
         setHidden(true);
       }
@@ -61,22 +62,14 @@ const LoginForm: React.FC = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button
-          type="submit"
-          className={styles.submitButton}
-          onClick={() => navigate('/home')}
-        >
+        <button type="submit" className={styles.submitButton}>
           Sign In
         </button>
-        <p
-          style={{ display: hidden ? 'none' : 'block' }}
-          className={styles.formLabel}
-        >
+        <p style={{ display: hidden ? 'none' : 'block' }} className={styles.formLabel}>
           SUCCESS!!!
         </p>
         <br />
         <br />
-
         <a href="#" className={styles.forgotPassword}>
           Forgot password?
         </a>
